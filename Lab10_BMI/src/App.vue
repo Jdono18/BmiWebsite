@@ -3,6 +3,8 @@
 import { ref } from 'vue'
 import BodyMassIndexForm from './components/BodyMassIndexForm.vue'
 
+const height = ref('')
+const weight = ref('')
 const bmi = ref(0)
 const calculateBMI = (height, weight) => {
   const bmi = weight / (height * height)
@@ -23,7 +25,7 @@ const calculateBMI = (height, weight) => {
       v-on:stats-entered="calculateBMI"
       ></BodyMassIndexForm>
 
-  <p> Your BMI is: {{ bmi.value }}  </p>
+  <p> Your BMI is: {{ bmi }}  </p>
 
 </template>
 

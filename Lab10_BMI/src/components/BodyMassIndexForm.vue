@@ -16,6 +16,7 @@ const weight = ref('0')
 
 function statsEntered() {
   alert('is this working?')
+
   // todo send this data - height and weight to App.vue to do the math
   // make sure to include weight
 
