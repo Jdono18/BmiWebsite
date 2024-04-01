@@ -9,31 +9,25 @@ defineProps({
 // define the message that this component may send to other components
 const emit = defineEmits(['stats-entered'])
 
-// we can pick the above names - this message will be sent once the user has entered their data and the app should do the math
-
 const height = ref('0')
 const weight = ref('0')
 
-function statsEntered() {
-  alert('is this working?')
-
-  // todo send this data - height and weight to App.vue to do the math
-  // make sure to include weight
-
-  emit('stats-entered', height.value, weight.value) // goes to this components parent
+function statsEntered() {  // defines function that emits height and weight values to parent app.vue
+  emit('stats-entered', height.value, weight.value) // emits to App.vue - components parent
 }
 </script>
 
 <template>
-  <label> Height</label>
-  <input v-model="height">
 
-  <label> Weight</label>
-  <input v-model="weight"> <br> <br>
+  <label> Enter your height in meters</label>
+  <input v-model="height">  <!-- binds user input to height ref using v-model-->
 
-  <button v-on:click="statsEntered"> Calculate </button>
+  <br>
 
+  <label> Enter your weight in kilograms </label>
+  <input v-model="weight"> <br> <br> <!-- binds user input to weight ref using v-model-->
 
+  <button v-on:click="statsEntered"> Calculate </button>  <!-- click event listener that calls statsEntered function -->
 
 </template>
 
